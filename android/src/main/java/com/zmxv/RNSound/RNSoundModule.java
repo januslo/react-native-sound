@@ -44,17 +44,17 @@ public class RNSoundModule extends ReactContextBaseJavaModule {
       callback.invoke(e);
       return;
     }
-    try {
-      player.prepare();
-    } catch (Exception exception) {
-              Log.e("RNSoundModule", "Exception", exception);
+   // try {
+   //   player.prepare();
+   // } catch (Exception exception) {
+   //           Log.e("RNSoundModule", "Exception", exception);
 
-       WritableMap e = Arguments.createMap();
-        e.putInt("code", -1);
-        e.putString("message", exception.getMessage());
-        callback.invoke(e);
-        return;
-    }
+    //   WritableMap e = Arguments.createMap();
+   //     e.putInt("code", -1);
+   //     e.putString("message", exception.getMessage());
+   //     callback.invoke(e);
+    //    return;
+   // }
     this.playerPool.put(key, player);
     WritableMap props = Arguments.createMap();
     props.putDouble("duration", player.getDuration() * .001);
